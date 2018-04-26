@@ -1,18 +1,49 @@
 console.log('this is showing up');
 
-let card = document.getElementsByClassName("card");
-console.log(card)
+var cards = [
+  { 
+    name: 'apple',
+    image: 'images/apple.png'
+  }, 
+  { 
+    name: 'apricot',
+    image: 'images/apricot.png'
+  }, 
+  { 
+    name: 'banana',
+    image: 'images/banana.png'
+  }, 
+  { 
+    name: 'cherry',
+    image: 'images/cherry.png'
+  },
+  { 
+    name: 'grapes',
+    image: 'images/apple.png'
+  },  
+  { 
+    name: 'lemon',
+    image: 'images/lemon.png'
+  }, 
+  { 
+    name: 'orange',
+    image: 'images/orange.png'
+  }, 
+  { 
+    name: 'strawberries',
+    image: 'images/strawberries.png'
+  }, 
+]
 
-let cards = [];
-function newGame () {
-  let card = document.getElementsByClassName("card");
+// function newGame () {
+//   var card;
+//   for (var i = 0; i < cards.length; i++) {
+//     card = cards[i].image;
+//     document.getElementById('cardDeck').appendChild()
+//   }
+// }
 
-  // for (var i = 16; i > cards.length; i++) {
-  //   cards.push(card);
-  // }
-}
+var card = document.getElementsByClassName('card');
 
-newGame();
-
-console.log(cards)
+console.log('card', card)
 

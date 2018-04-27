@@ -45,7 +45,6 @@ function checkMatch(cardGuess) {
       if (currentScore === 10) {
         youWin();
       }
-
     }
     else {
       console.log('cards do not match')
@@ -93,8 +92,23 @@ function startGame() {
   }
 }
 
+var modal = document.getElementById('winnerPop');
+var modalContent = document.getElementById('winnerPopContent');
+var span = document.getElementsByClassName('close');
+
 function youWin() {
-  console.log('game is over')
+  console.log('game is over');
+  modal.style.display="flex";
+}
+
+span.onClick = function() {
+  modal.style.display="none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
 
 startGame();

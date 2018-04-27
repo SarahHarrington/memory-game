@@ -9,6 +9,7 @@ for (var i = 0; i < cards.length; i++) {
 
 function selectedCard(event) {
   console.log('card clicked', event.target.attributes.type.value);
+  event.target.classList.toggle('selected');
   checkMatch(event);
 }
 
@@ -26,11 +27,10 @@ function checkMatch(cardGuess) {
   if (firstCard === null) {
     firstCard = cardGuess;
     firstCard.target.classList.toggle('green');
-    // console.log('first card', firstCard)
   }
+
   else if (secondCard === null) {
     secondCard = cardGuess;
-    // console.log('second card', secondCard)
     if (firstCard.target.attributes.type.value === secondCard.target.attributes.type.value ) {
       console.log('cards match!')
       firstCard.target.classList.toggle('matched');
@@ -53,7 +53,7 @@ function checkMatch(cardGuess) {
       document.getElementById("attempts").innerHTML = 'Total Attempts: ' + attempts;
       firstCard.target.classList.toggle('green', 'orange')
       secondCard.target.classList.toggle('orange');
-      setTimeout(clearGuess, 1000)
+      setTimeout(clearGuess, 1100)
     }
   }
 }
@@ -65,8 +65,8 @@ function clearArray() {
 }
 
 function clearGuess() {
-  firstCard.target.classList.remove('orange', 'green');
-  secondCard.target.classList.remove('orange', 'green');
+  firstCard.target.classList.remove('orange', 'green', 'selected');
+  secondCard.target.classList.remove('orange', 'green', 'selected');
   firstCard = null;
   secondCard = null;
 }

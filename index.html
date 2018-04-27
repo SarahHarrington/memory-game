@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Memory Matcher</title>
   <link rel="stylesheet" href="vendors/fontawesome-all.min.css">
-  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"> -->
+  <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -17,12 +17,14 @@
     <header>
       <h1>Memory Matcher</h1>
     </header>
+    
     <section>
-      Score Area
-      <h2 id="currentScore"></h2>
-      <h2 id="attempts"></h2>
+      <h2 class="scoreArea" id="currentScore"></h2>
+      <h2 class="scoreArea" id="attempts"></h2>
+      <button><i class="fas fa-redo-alt"></i></button>
     </section>
-    <!-- <div class="container"> -->
+      
+    <!-- Deck of Cards Game Board> -->
       <div class="deck" id="cardDeck">
         <div class="card" type="bicycle">
           <i class="fas fa-bicycle"></i>
@@ -84,7 +86,7 @@
         <div class="card" type="ship">
           <i class="fas fa-ship"></i>
         </div>
-      <!-- </div> -->
+      </div>
     </div>
     <script src="client.js" defer="true"></script>
 </body>

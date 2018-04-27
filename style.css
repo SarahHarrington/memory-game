@@ -37,3 +37,10 @@ body {
   font-size: 7rem;
 }
 
+.card.selected {
+  user-select: none;
+}
+
+.card.matched {
+  user-select: none;
+}

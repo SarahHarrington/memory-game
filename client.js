@@ -32,16 +32,16 @@ function checkMatch(cardGuess) {
     console.log('second card', secondCard)
     if (firstCard.target.attributes.type.value === secondCard.target.attributes.type.value ) {
       console.log('cards match!')
-      secondCard.target.classList.toggle('green');
-      clearArray();
+      secondCard.target.classList.toggle('green', 'matched');
+      firstCard = null;
+      secondCard = null;
+      // clearArray();
     }
     else {
       console.log('cards do not match')
-      console.log('eventTracker class list', eventTracker[0].target.classList)
-      eventTracker[0].target.classList.toggle('green', 'orange')
-      eventTracker[1].target.classList.toggle('orange');
-      firstCard = null;
-      secondCard = null;
+      // console.log('eventTracker class list', eventTracker[0].target.classList)
+      firstCard.target.classList.toggle('green', 'orange')
+      secondCard.target.classList.toggle('orange');
       setTimeout(clearGuess, 1000)
     }
   }
@@ -54,9 +54,10 @@ function clearArray() {
 }
 
 function clearGuess() {
-  eventTracker[0].target.classList.remove('orange', 'green');
-  eventTracker[1].target.classList.remove('orange', 'green')
-  eventTracker = [];
+  firstCard.target.classList.remove('orange', 'green');
+  secondCard.target.classList.remove('orange', 'green');
+  firstCard = null;
+  secondCard = null;
 }
 
 function shuffle(array) {

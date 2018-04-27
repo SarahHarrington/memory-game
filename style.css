@@ -1,2 +1,43 @@
+body {
+  display: flex;
+  justify-content: center;
+}
 
+.container {
+
+}
+
+#green {
+  background-color: #4DAA57;
+  font-size: 7rem;
+}
+
+.deck {
+  background-color: #25283D;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  align-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  height: 10rem;
+  width: 10rem;
+  background-color: #375D77;
+  font-size: 0;
+  color: white;
+  margin: 1rem 1rem;
+  list-style: none;
+  /* display: flex; */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card.green {
+  background-color: #4DAA57;
+  font-size: 7rem;
+}
 

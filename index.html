@@ -13,14 +13,16 @@
 </head>
 
 <body>
-  <div>
+  <div class="container">
     <header>
       <h1>Memory Matcher</h1>
     </header>
     <section>
       Score Area
+      <h2 id="currentScore"></h2>
+      <h2 id="attempts"></h2>
     </section>
-    <div class="container">
+    <!-- <div class="container"> -->
       <div class="deck" id="cardDeck">
         <div class="card" type="bicycle">
           <i class="fas fa-bicycle"></i>
@@ -82,7 +84,7 @@
         <div class="card" type="ship">
           <i class="fas fa-ship"></i>
         </div>
-      </div>
+      <!-- </div> -->
     </div>
     <script src="client.js" defer="true"></script>
 </body>

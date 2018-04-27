@@ -1,5 +1,11 @@
 body {
+  background-color: #B6C4CD;
+}
+
+.container {
   display: flex;
+  display: inline-flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -12,6 +18,9 @@ body {
   justify-content: center;
   align-content: space-around;
   flex-wrap: wrap;
+  border-radius: 5px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .card {
@@ -22,9 +31,11 @@ body {
   color: white;
   margin: 1rem 1rem;
   list-style: none;
-  /* display: flex; */
+  display: flex;
   border-radius: 5px;
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
 }
 
 .card.green {

@@ -7,16 +7,21 @@ for (var i = 0; i < cards.length; i++) {
 
 console.log('cards', cards)
 
+let eventTracker = [];
+
 function selectedCard(event) {
   console.log('card clicked', event.target.attributes.type.value);
-  event.target.classList.add('green');
-
+  event.target.classList.toggle('green');
+  eventTracker.push(event);
+  console.log('event tracker', eventTracker)
   checkMatch(event);
 }
 
 let firstCard = null
 let secondCard = null;
+
 function checkMatch(cardGuess) {
+  var trackingArray = [];
 
   if (firstCard === null) {
     firstCard = cardGuess;
@@ -26,15 +31,25 @@ function checkMatch(cardGuess) {
     secondCard = cardGuess;
     console.log('second card', secondCard)
     if (firstCard.target.attributes.type.value === secondCard.target.attributes.type.value ) {
-      secondCard.classList.add('green');
+      secondCard.classList.toggle('green');
     }
     else {
       console.log('cards do not match')
-      firstCard.classList.remove('green');
+      console.log('eventTracker class list', eventTracker[0].target.classList)
+      eventTracker[0].target.classList.toggle('green', 'orange')
+      eventTracker[1].target.classList.toggle('orange');
       firstCard = null;
       secondCard = null;
+      setTimeout(clearGuess, 1000)
     }
   }
+}
+
+function clearGuess() {
+  eventTracker[0].target.classList.remove('orange', 'green');
+  eventTracker[1].target.classList.remove('orange', 'green')
+
+  eventTracker = [];
 }
 
 function shuffle(array) {
@@ -66,4 +81,3 @@ function startGame() {
 
 startGame();
 
-console.log('Cards', cards);

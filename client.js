@@ -11,7 +11,6 @@ let eventTracker = [];
 
 function selectedCard(event) {
   console.log('card clicked', event.target.attributes.type.value);
-  event.target.classList.toggle('green');
   eventTracker.push(event);
   console.log('event tracker', eventTracker)
   checkMatch(event);
@@ -25,13 +24,16 @@ function checkMatch(cardGuess) {
 
   if (firstCard === null) {
     firstCard = cardGuess;
+    firstCard.target.classList.toggle('green');
     console.log('first card', firstCard)
   }
   else if (secondCard === null) {
     secondCard = cardGuess;
     console.log('second card', secondCard)
     if (firstCard.target.attributes.type.value === secondCard.target.attributes.type.value ) {
-      secondCard.classList.toggle('green');
+      console.log('cards match!')
+      secondCard.target.classList.toggle('green');
+      clearArray();
     }
     else {
       console.log('cards do not match')
@@ -45,10 +47,15 @@ function checkMatch(cardGuess) {
   }
 }
 
+function clearArray() {
+  trackingArray = [];
+  firstCard = null;
+  secondCard = null;
+}
+
 function clearGuess() {
   eventTracker[0].target.classList.remove('orange', 'green');
   eventTracker[1].target.classList.remove('orange', 'green')
-
   eventTracker = [];
 }
 

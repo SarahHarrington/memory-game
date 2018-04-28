@@ -51,7 +51,8 @@ function checkMatch(cardGuess) {
     else {
       attempts = attempts + 1;
       document.getElementById("attempts").innerHTML = 'Attempts: ' + attempts;
-      firstCard.target.classList.toggle('green', 'orange')
+      firstCard.target.classList.toggle('green')
+      firstCard.target.classList.toggle('orange')
       secondCard.target.classList.toggle('orange');
       setTimeout(clearGuess, 1100)
     }

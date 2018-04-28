@@ -25,8 +25,8 @@ function selectedCard(event) {
     return
   }
   else {
-    event.target.classList.toggle('selected');
-    checkMatch(event);
+    event.currentTarget.classList.add('selected');
+    checkMatch(event.currentTarget);
   }
 }
 
@@ -34,15 +34,15 @@ function checkMatch(cardGuess) {
 
   if (firstCard === null) {
     firstCard = cardGuess;
-    firstCard.target.classList.toggle('green');
+    firstCard.classList.add('green');
   }
 
   else if (secondCard === null) {
     secondCard = cardGuess;
-    if (firstCard.target.attributes.type.value === secondCard.target.attributes.type.value ) {
-      firstCard.target.classList.toggle('matched');
-      secondCard.target.classList.toggle('green');
-      secondCard.target.classList.toggle('matched');
+    if (firstCard.getAttribute('type') === secondCard.getAttribute('type') ) {
+      firstCard.classList.add('matched');
+      secondCard.classList.add('green');
+      secondCard.classList.add('matched');
       currentScore = currentScore + 1;
       attempts = attempts + 1;
       firstCard = null;
@@ -56,11 +56,10 @@ function checkMatch(cardGuess) {
     else {
       attempts = attempts + 1;
       document.getElementById("attempts").innerHTML = 'Attempts: ' + attempts;
-      firstCard.target.classList.toggle('green')
-      firstCard.target.classList.toggle('orange')
-      firstCard.target.classList.remove('selected', 'green');
-      secondCard.target.classList.toggle('orange');
-      secondCard.target.classList.remove('selected', 'green');
+      firstCard.classList.add('orange')
+      firstCard.classList.remove('green');
+      secondCard.classList.add('orange');
+      secondCard.classList.remove('green');
       clearGuessTimeout = setTimeout(clearGuess, 1100);
     }
   }
@@ -68,8 +67,8 @@ function checkMatch(cardGuess) {
 
 function clearGuess() {
   clearGuessTimeout = null;
-  firstCard.target.classList.remove('orange');
-  secondCard.target.classList.remove('orange');
+  firstCard.classList.remove('orange', 'selected');
+  secondCard.classList.remove('orange', 'selected');
   firstCard = null;
   secondCard = null;
 }

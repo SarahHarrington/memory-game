@@ -8,6 +8,11 @@ body {
   color: #25283D;
 }
 
+header {
+  font-size: 2rem;
+  padding: 0;
+}
+
 .container {
   display: flex;
 	justify-content: center;
@@ -22,12 +27,13 @@ body {
 
 button {
   background-color: #B6C4CD;
+  color: #25283D;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
 }
 
-button.playAgain {
+button#playAgain {
   font-size: 2rem;
   font-family: 'Righteous', cursive;
 }
@@ -58,6 +64,13 @@ button.playAgain {
   cursor: pointer;
   justify-content: center;
   align-items: center;
+}
+
+.card:hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .card.green {
@@ -96,25 +109,44 @@ button.playAgain {
 /* Modal Content/Box */
 #winnerPopContent {
   text-align: center;
+  font-size: 3rem;
   background-color: #B6C4CD;
-  color: black;
+  color: #25283D;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 50%; /* Could be more or less, depending on screen size */
+  height: 30%;
   border-radius: 5px;
 }
 
-/* The Close Button */
-.close {
+#close {
   color: #25283D;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+#close:hover,
+#close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }

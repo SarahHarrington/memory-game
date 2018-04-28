@@ -1,5 +1,13 @@
 let card = document.getElementsByClassName('card');
 let cards = [...card];
+let firstCard = null
+let secondCard = null;
+let currentScore = 0;
+let attempts = 0;
+const startOverBtn = document.getElementById('startOverBtn');
+
+document.getElementById("currentScore").innerHTML = 'Current Score: ' + currentScore;
+document.getElementById("attempts").innerHTML = 'Total Attempts: ' + attempts;
 
 for (var i = 0; i < cards.length; i++) {
   cards[i].addEventListener('click', selectedCard)
@@ -12,15 +20,6 @@ function selectedCard(event) {
   event.target.classList.toggle('selected');
   checkMatch(event);
 }
-
-let firstCard = null
-let secondCard = null;
-
-let currentScore = 0;
-let attempts = 0;
-
-document.getElementById("currentScore").innerHTML = 'Current Score: ' + currentScore;
-document.getElementById("attempts").innerHTML = 'Total Attempts: ' + attempts;
 
 function checkMatch(cardGuess) {
 
@@ -57,12 +56,6 @@ function checkMatch(cardGuess) {
   }
 }
 
-function clearArray() {
-  trackingArray = [];
-  firstCard = null;
-  secondCard = null;
-}
-
 function clearGuess() {
   firstCard.target.classList.remove('orange', 'green', 'selected');
   secondCard.target.classList.remove('orange', 'green', 'selected');
@@ -70,12 +63,11 @@ function clearGuess() {
   secondCard = null;
 }
 
-function shuffle(array) {
+shuffle = (array) => {
   var currentIndex = array.length, temporaryValue, randomIndex ;
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
-
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
@@ -84,6 +76,10 @@ function shuffle(array) {
 }
 
 function startGame() {
+  firstCard = null
+  secondCard = null;
+  currentScore = 0;
+  attempts = 0;
   shuffle(cards);
   var newCard;
   for (var i = 0; i < cards.length; i++) {
@@ -94,21 +90,31 @@ function startGame() {
 
 var modal = document.getElementById('winnerPop');
 var modalContent = document.getElementById('winnerPopContent');
-var span = document.getElementsByClassName('close');
+var modalClose = document.getElementById('close');
+var playAgain = document.getElementById('playAgain');
 
 function youWin() {
-  console.log('game is over');
   modal.style.display="flex";
 }
 
-span.onClick = function() {
+modalClose.onclick = function() {
   modal.style.display="none";
+}
+
+playAgain.onclick = function() {
+  modal.style.display="none";
+  startGame();
 }
 
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
+}
+
+startOverBtn.onclick = function() {
+  console.log('start over clicked')
+  startGame();
 }
 
 startGame();

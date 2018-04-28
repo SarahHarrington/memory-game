@@ -3,5 +3,8 @@
 ## Built With
 HTML, CSS, JavaSCript
 
-##Authors
+## About
+This matching game uses plain HTML, CSS and JavaScript.
+
+## Authors
 Sarah Harrington

@@ -5,6 +5,7 @@ let secondCard = null;
 let currentScore = 0;
 let attempts = 0;
 const startOverBtn = document.getElementById('startOverBtn');
+let clearGuessTimeout = null;
 
 document.getElementById("currentScore").innerHTML = 'Matches: ' + currentScore;
 document.getElementById("attempts").innerHTML = 'Attempts: ' + attempts;
@@ -16,6 +17,10 @@ for (let i = 0; i < cards.length; i++) {
 // console.log('cards', cards)
 
 function selectedCard(event) {
+  if (clearGuessTimeout !== null) {
+    clearTimeout(clearGuessTimeout);
+    clearGuess();
+  }
   if (event.currentTarget.classList.contains('selected')) {
     return
   }
@@ -53,15 +58,18 @@ function checkMatch(cardGuess) {
       document.getElementById("attempts").innerHTML = 'Attempts: ' + attempts;
       firstCard.target.classList.toggle('green')
       firstCard.target.classList.toggle('orange')
+      firstCard.target.classList.remove('selected', 'green');
       secondCard.target.classList.toggle('orange');
-      setTimeout(clearGuess, 1100)
+      secondCard.target.classList.remove('selected', 'green');
+      clearGuessTimeout = setTimeout(clearGuess, 1100);
     }
   }
 }
 
 function clearGuess() {
-  firstCard.target.classList.remove('orange', 'green', 'selected');
-  secondCard.target.classList.remove('orange', 'green', 'selected');
+  clearGuessTimeout = null;
+  firstCard.target.classList.remove('orange');
+  secondCard.target.classList.remove('orange');
   firstCard = null;
   secondCard = null;
 }

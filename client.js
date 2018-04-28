@@ -75,17 +75,25 @@ shuffle = (array) => {
   return array;
 }
 
+clearClasses = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    array[i].classList.remove('orange', 'green', 'selected');
+  }
+}
+
 function startGame() {
   firstCard = null
   secondCard = null;
   currentScore = 0;
   attempts = 0;
+  clearClasses(cards);
   shuffle(cards);
   var newCard;
   for (var i = 0; i < cards.length; i++) {
     newCard = cards[i];
     document.getElementById('cardDeck').appendChild(newCard);
   }
+  console.log(cards)
 }
 
 var modal = document.getElementById('winnerPop');

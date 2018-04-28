@@ -67,20 +67,20 @@ button#playAgain {
 }
 
 .card:hover {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
+  animation: pulse 2s infinite;
+  cursor: pointer;
 }
 
 .card.green {
   background-color: #4DAA57;
   font-size: 7rem;
+  animation: none;
 }
 
 .card.orange {
   background-color: #F4743B;
   font-size: 7rem;
+  animation: none;
 }
 
 .card.selected {
@@ -148,5 +148,31 @@ button#playAgain {
 
   40%, 60% {
     transform: translate3d(4px, 0, 0);
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(182,196,205, 0.4);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(82,196,205, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(82,196,205, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(82,196,205, 0.4);
+    box-shadow: 0 0 0 0 rgba(82,196,205, 0.4);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(82,196,205, 0);
+      box-shadow: 0 0 0 10px rgba(82,196,205, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(282,196,205, 0);
+      box-shadow: 0 0 0 0 rgba(82,196,205, 0);
   }
 }

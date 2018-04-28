@@ -6,19 +6,23 @@ let currentScore = 0;
 let attempts = 0;
 const startOverBtn = document.getElementById('startOverBtn');
 
-document.getElementById("currentScore").innerHTML = 'Current Score: ' + currentScore;
-document.getElementById("attempts").innerHTML = 'Total Attempts: ' + attempts;
+document.getElementById("currentScore").innerHTML = 'Matches: ' + currentScore;
+document.getElementById("attempts").innerHTML = 'Attempts: ' + attempts;
 
-for (var i = 0; i < cards.length; i++) {
+for (let i = 0; i < cards.length; i++) {
   cards[i].addEventListener('click', selectedCard)
 }
 
 // console.log('cards', cards)
 
 function selectedCard(event) {
-  console.log('card clicked', event.target.attributes.type.value);
-  event.target.classList.toggle('selected');
-  checkMatch(event);
+  if (event.currentTarget.classList.contains('selected')) {
+    return
+  }
+  else {
+    event.target.classList.toggle('selected');
+    checkMatch(event);
+  }
 }
 
 function checkMatch(cardGuess) {
@@ -31,7 +35,6 @@ function checkMatch(cardGuess) {
   else if (secondCard === null) {
     secondCard = cardGuess;
     if (firstCard.target.attributes.type.value === secondCard.target.attributes.type.value ) {
-      console.log('cards match!')
       firstCard.target.classList.toggle('matched');
       secondCard.target.classList.toggle('green');
       secondCard.target.classList.toggle('matched');
@@ -39,16 +42,15 @@ function checkMatch(cardGuess) {
       attempts = attempts + 1;
       firstCard = null;
       secondCard = null;
-      document.getElementById("currentScore").innerHTML = 'Score: ' + currentScore;
-      document.getElementById("attempts").innerHTML = 'Total Attempts: ' + attempts;
+      document.getElementById("currentScore").innerHTML = 'Matches: ' + currentScore;
+      document.getElementById("attempts").innerHTML = 'Attempts: ' + attempts;
       if (currentScore === 10) {
         youWin();
       }
     }
     else {
-      console.log('cards do not match')
       attempts = attempts + 1;
-      document.getElementById("attempts").innerHTML = 'Total Attempts: ' + attempts;
+      document.getElementById("attempts").innerHTML = 'Attempts: ' + attempts;
       firstCard.target.classList.toggle('green', 'orange')
       secondCard.target.classList.toggle('orange');
       setTimeout(clearGuess, 1100)
@@ -64,7 +66,7 @@ function clearGuess() {
 }
 
 shuffle = (array) => {
-  var currentIndex = array.length, temporaryValue, randomIndex ;
+  let currentIndex = array.length, temporaryValue, randomIndex ;
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
@@ -81,19 +83,20 @@ clearClasses = (array) => {
   }
 }
 
-function startGame() {
+startGame = () => {
   firstCard = null
   secondCard = null;
   currentScore = 0;
   attempts = 0;
   clearClasses(cards);
   shuffle(cards);
+  document.getElementById("currentScore").innerHTML = 'Matches: ' + currentScore;
+  document.getElementById("attempts").innerHTML = 'Attempts: ' + attempts;
   var newCard;
-  for (var i = 0; i < cards.length; i++) {
+  for (let i = 0; i < cards.length; i++) {
     newCard = cards[i];
     document.getElementById('cardDeck').appendChild(newCard);
   }
-  console.log(cards)
 }
 
 var modal = document.getElementById('winnerPop');

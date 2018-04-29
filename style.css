@@ -17,7 +17,8 @@ header {
   display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 .scoreArea {
@@ -34,7 +35,7 @@ button {
 }
 
 button#playAgain {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: 'Righteous', cursive;
 }
 
@@ -109,7 +110,7 @@ button#playAgain {
 /* Modal Content/Box */
 #winnerPopContent {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   background-color: #B6C4CD;
   color: #25283D;
   margin: 15% auto; /* 15% from the top and centered */

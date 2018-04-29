@@ -114,6 +114,8 @@ var playAgain = document.getElementById('playAgain');
 
 function youWin() {
   modal.style.display="flex";
+  document.getElementById("winnerFinalTries").innerHTML = 'Final Attemps: ' + attempts;
+  document.getElementById("winnerFinalScore").innerHTML = 'Total Matches: ' + currentScore;
 }
 
 modalClose.onclick = function() {

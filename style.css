@@ -115,7 +115,7 @@ button#playAgain {
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   width: 50%; /* Could be more or less, depending on screen size */
-  height: 30%;
+  height: auto;
   border-radius: 5px;
 }
 

@@ -10,11 +10,7 @@ let clearGuessTimeout = null;
 document.getElementById("currentScore").innerHTML = 'Matches: ' + currentScore;
 document.getElementById("attempts").innerHTML = 'Attempts: ' + attempts;
 
-for (let i = 0; i < cards.length; i++) {
-  cards[i].addEventListener('click', selectedCard)
-}
-
-// console.log('cards', cards)
+cards.forEach(card => card.addEventListener('click', selectedCard));
 
 function selectedCard(event) {
   if (clearGuessTimeout !== null) {
@@ -86,9 +82,7 @@ shuffle = (array) => {
 }
 
 clearClasses = (array) => {
-  for (let i = 0; i < array.length; i++) {
-    array[i].classList.remove('orange', 'green', 'selected');
-  }
+  array.forEach(card => card.classList.remove('orange', 'green', 'selected', 'matched'));
 }
 
 startGame = () => {
@@ -101,10 +95,7 @@ startGame = () => {
   document.getElementById("currentScore").innerHTML = 'Matches: ' + currentScore;
   document.getElementById("attempts").innerHTML = 'Attempts: ' + attempts;
   var newCard;
-  for (let i = 0; i < cards.length; i++) {
-    newCard = cards[i];
-    document.getElementById('cardDeck').appendChild(newCard);
-  }
+  cards.forEach(card => document.getElementById('cardDeck').appendChild(card));
 }
 
 var modal = document.getElementById('winnerPop');

@@ -19,4 +19,4 @@ HTML, CSS, JavaScript, Google Fonts, and Font Awesome
 ## Author
 Sarah Harrington
 
-![image](https://user-images.githubusercontent.com/23586622/43661429-d0baecac-9727-11e8-8c33-734c1f09b477.png")
+![image](https://user-images.githubusercontent.com/23586622/43661429-d0baecac-9727-11e8-8c33-734c1f09b477.png)

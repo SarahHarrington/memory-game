@@ -94,7 +94,6 @@ startGame = () => {
   shuffle(cards);
   document.getElementById("currentScore").innerHTML = 'Matches: ' + currentScore;
   document.getElementById("attempts").innerHTML = 'Attempts: ' + attempts;
-  var newCard;
   cards.forEach(card => document.getElementById('cardDeck').appendChild(card));
 }
 

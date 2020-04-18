@@ -24,16 +24,18 @@
 
 <body>
   <div class="container">
-    <header>
-      <h1>Memory Game!</h1>
-    </header>
-    
-    <section>
-      <h2 class="scoreArea" id="currentScore"></h2>
-      <h2 class="scoreArea" id="attempts"></h2>
-      <button id="startOverBtn"><i class="fas fa-redo-alt"></i></button>
-    </section>
+    <div id="mobile-header">
+      <header>
+        <h1>Memory Game!</h1>
+      </header>
       
+      <section id="score-board">
+        <h2 class="scoreArea" id="currentScore"></h2>
+        <h2 class="scoreArea" id="attempts"></h2>
+        <button id="startOverBtn"><i class="fas fa-redo-alt"></i></button>
+      </section>
+    </div>
+    
     <!-- Deck of Cards Game Board> -->
       <div class="deck" id="cardDeck">
         <div class="card" type="bicycle">

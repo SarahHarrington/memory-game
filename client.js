@@ -4,6 +4,7 @@ let firstCard = null
 let secondCard = null;
 let currentScore = 0;
 let attempts = 0;
+let startGameTime = null;
 const startOverBtn = document.getElementById('startOverBtn');
 let clearGuessTimeout = null;
 
@@ -86,6 +87,9 @@ clearClasses = (array) => {
 }
 
 startGame = () => {
+  endGametime = null;
+  startGameTime = null;
+  startGameTime = Date.now()
   firstCard = null
   secondCard = null;
   currentScore = 0;
@@ -103,9 +107,18 @@ var modalClose = document.getElementById('close');
 var playAgain = document.getElementById('playAgain');
 
 function youWin() {
+  endGametime = Date.now()
+  totalGameTime = getGameTimeTotal(endGametime - startGameTime)
   modal.style.display="flex";
   document.getElementById("winnerFinalTries").innerHTML = 'Final Attemps: ' + attempts;
-  document.getElementById("winnerFinalScore").innerHTML = 'Total Matches: ' + currentScore;
+  // document.getElementById("winnerFinalScore").innerHTML = 'Total Matches: ' + currentScore;
+  document.getElementById("winnerFinalTime").innerHTML = totalGameTime;
+}
+
+function getGameTimeTotal(time) {
+  let minutes = Math.floor(time / 60000);
+  let seconds = ((time % 60000) / 1000).toFixed(0);
+  return `${minutes} minutes ${seconds} seconds`
 }
 
 modalClose.onclick = function() {
@@ -124,7 +137,7 @@ window.onclick = function(event) {
 }
 
 startOverBtn.onclick = function() {
-  console.log('start over clicked')
+  // console.log('start over clicked')
   startGame();
 }
 

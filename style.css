@@ -1,4 +1,6 @@
 body {
+  display: grid;
+  grid-template-rows: 1fr auto;
   background-color: #B6C4CD;
   width: 100%;
   height: 100vh;
@@ -19,6 +21,11 @@ h1 {
 
 h2 {
   margin: 0;
+}
+
+footer {
+  grid-row: 2 / 3;
+  align-content: center;
 }
 
 .container {
@@ -174,34 +181,6 @@ button#playAgain {
   }
 }
 
-/* @media only screen and (max-width: 600px) {
-  header {
-    text-align: center;
-  }
-
-  .deck {
-    height: 95%;
-    width: 95%;
-  }
-
-  .card {
-    height: 4rem;
-    width: 4rem;
-    margin: .5rem .5rem;
-  }
-
-  .card:hover {
-    animation: none;
-  }
-
-  .card.green {
-    font-size: 2rem;
-  }
-  .card.orange {
-    font-size: 2rem;
-  }
-} */
-
 @media screen and (max-width: 1168px) {
   header {
     font-size: .5em;
@@ -230,15 +209,7 @@ button#playAgain {
   #score-board {
     display: inline-flex;
   }
-/* 
-  .deck {
-    width: 90%;
-    height: 50%;
-    padding: 0;
-    margin: 0;
-    justify-content: space-around;
-    align-items: space-around;
-  } */
+
   .card {
     height: 4.5rem;
     width: 4.5rem;
